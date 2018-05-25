@@ -30,7 +30,11 @@ namespace Lucky_Numbers_Project
             {
                 Console.WriteLine("Please choose six numbers from the number range above.");
                 userGuesses = int.Parse(Console.ReadLine());
-
+                while(userGuesses < numRangeMin || userGuesses > numRangeMax)
+                {
+                    Console.WriteLine("The number you have chosen is outside the range of numbers chosen. Please choose numbers within range.");
+                    userGuesses = int.Parse(Console.ReadLine());
+                }
                 userChoices[i] = userGuesses;
 
                 
