@@ -14,13 +14,13 @@ namespace Lucky_Numbers_Project
             int numRangeMax;
             int[] userChoices = new int[6];
             int[] randomNumbers = new int[6];
-            int jackpot = 24000000;
-            int numbersCorrect;
+            int jackpot = 60000;
+            int numbersCorrect = 0;
             int userWinnings;
             int userGuesses;
             
 
-            Console.WriteLine("Welcome to the Lucky Numbers Lottery Game.You can win a jackpot of up to $24000000. Please choose your starting number.");
+            Console.WriteLine("Welcome to the Lucky Numbers Lottery Game. You can win a jackpot of up to $60000. Please choose your starting number.");
             numRangeMin = int.Parse(Console.ReadLine());
 
             Console.WriteLine("Please choose your ending number.");
@@ -34,6 +34,17 @@ namespace Lucky_Numbers_Project
                 {
                     Console.WriteLine("The number you have chosen is outside the range of numbers chosen. Please choose numbers within range.");
                     userGuesses = int.Parse(Console.ReadLine());
+                }
+
+                while(userChoices.Contains(userGuesses))
+                {
+                    if (true)
+                    {
+                        Console.WriteLine("You have already entered this number. Please select a different number.");
+                        userGuesses = int.Parse(Console.ReadLine());
+                    }
+
+                    else break;
                 }
                 userChoices[i] = userGuesses;
 
@@ -49,12 +60,26 @@ namespace Lucky_Numbers_Project
 
             }
 
+            for (int i =0; i < userChoices.Length; i++)
+            {
+                for (int j = 0; j < randomNumbers.Length; j++)
+                {
+                    if (userChoices[i] == randomNumbers[j])
+                    {
+                        numbersCorrect += 1;
+                    }
+
+                }
+
+            }
+
+            Console.WriteLine("You have chosen " + numbersCorrect + " numbers correctly. ");
+            userWinnings = numbersCorrect * 10000;
+            Console.WriteLine("Congratulations! You have won $ " + userWinnings + " dollars!!");
 
 
-
-
-
-
+                
+                
         }
 
 
